@@ -1,0 +1,36 @@
+https://fullstackcode.dev/2022/07/09/run-oracle-database-with-docker/
+
+
+
+docker run -d -p 1521:1521 -e ORACLE_PASSWORD=root gvenzl/oracle-xe:21-slim
+
+
+docker pull gvenzl/oracle-xe:21-slim
+docker-compose up
+docker-compose up -d
+docker-compose down --volume
+
+docker exec -it oracledatabase bash
+sqlplus
+sys as sysdba
+--- masukan password = root 
+show con_name;
+ALTER SESSION SET CONTAINER = eis;
+show con_name;
+alter database open;
+create user DBUSER identified by dbuser;
+grant connect, resource, dba to DBUSER;
+connect DBUSER@eis
+--- masukan password tadi = dbuser
+
+Host Name     : localhost or 127.0.0.1
+Port          : 1521
+Service Name  : XEPDB1
+User Name     : SYSTEM or SYS ( ROLE : SYSDBA)
+Password      : root
+
+Host Name   : localhost 
+Port        : 1521
+Server Name : eis 
+User Name   : dbuser 
+Password    : dbuser
