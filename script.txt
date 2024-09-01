@@ -34,3 +34,14 @@ Port        : 1521
 Server Name : eis 
 User Name   : dbuser 
 Password    : dbuser
+
+
+
+===============================
+show con_name;
+
+ALTER SESSION SET CONTAINER = geraldine;
+
+grant connect, resource, dba to DBUSER;
+
+alter database open;
