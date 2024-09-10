@@ -10,6 +10,6 @@
 
 SELECT DISTINCT first_name FROM contacts ORDER BY first_name;
 
-SELECT DISTINCT product_id. quantity FROM order_items ORDER BY product_id;
+SELECT DISTINCT product_id, quantity FROM order_items ORDER BY product_id;
 
 SELECT DISTINCT state FROM locations ORDER BY state NULLS FIRST;

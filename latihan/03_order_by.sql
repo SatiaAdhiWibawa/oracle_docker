@@ -26,9 +26,6 @@ SELECT name, address, credit_limit FROM customers;
 SELECT name, address, credit_limit FROM customers ORDER BY name
 
 
-SELECT * FROM CONTACTS;
-
-
 SELECT first_name, last_name FROM contacts ORDER BY first_name DESC, last_name DESC;
 
 
