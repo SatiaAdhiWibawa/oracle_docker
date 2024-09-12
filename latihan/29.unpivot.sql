@@ -1,0 +1,108 @@
+-- ORACLE UNPIVOT
+-- Digunakan untuk merubah kolom menjadi baris
+
+-- SELECT
+--     select_list
+-- FROM
+--     table_name
+-- UNPIVOT [INCLUDE | EXCLUDE NULLS]
+-- (
+--     unpivot_cluse
+--     unpivot_for_clause
+--     unpivot_in_clause
+-- );
+
+-- jika tidak di definisikan INCLUDE atau EXCLUDE NULLS, maka defaultnya adalah EXCLUDE NULLS
+-- mirip seperti PIVOT, UNPIVOT juga memiliki 3 bagian yaitu
+-- 1. unpivot_clause
+-- 2. unpivot_for_clause
+-- 3. unpivot_in_clause
+
+
+
+-- CREATE TABLE
+CREATE TABLE SALE_STATS
+(
+    ID INT PRIMARY KEY,
+    FISCAL_YEAR INT,
+    PRODUCT_A INT,
+    PRODUCT_B INT,
+    PRODUCT_C INT
+);
+
+INSERT INTO SALE_STATS (ID, FISCAL_YEAR, PRODUCT_A, PRODUCT_B, PRODUCT_C) 
+VALUES (1, 2017, NULL, 200, 300);
+
+INSERT INTO SALE_STATS (ID, FISCAL_YEAR, PRODUCT_A, PRODUCT_B, PRODUCT_C)
+VALUES (2, 2018, 150, NULL, 250);
+
+INSERT INTO SALE_STATS (ID, FISCAL_YEAR, PRODUCT_A, PRODUCT_B, PRODUCT_C)
+VALUES (3, 2019, 150, 220, NULL);
+
+
+-- CEK DATA TABLE SALE_STATS
+SELECT * FROM SALE_STATS;
+
+-- UNPIVOT tanpa menggunakan INCLUDE atau EXCLUDE NULLS
+-- maka defaultnya adalah EXCLUDE NULLS
+SELECT * FROM SALE_STATS
+UNPIVOT
+(
+    QUANTITY
+    FOR PRODUCT_CODE
+    IN(
+        PRODUCT_A AS 'A',
+        PRODUCT_B AS 'B',
+        PRODUCT_C AS 'C'
+    )
+);
+
+
+-- UNPIVOT menggunakan INCLUDE NULLS
+SELECT * FROM SALE_STATS
+UNPIVOT INCLUDE NULLS
+(
+    QUANTITY
+    FOR PRODUCT_CODE
+    IN(
+        PRODUCT_A AS 'A',
+        PRODUCT_B AS 'B',
+        PRODUCT_C AS 'C'
+    )
+);
+
+
+-- MENCOBA MENGGUNAKAN UNPIVOT LEBIH DARI SATU KOLOM
+
+-- CREATE NEW TABLE
+CREATE TABLE SALE_STATS_2
+(
+    ID INT PRIMARY KEY,
+    FISCAL_YEAR INT,
+    A_QTY INT,
+    A_VALUE DEC(19,2),
+    B_QTY INT,
+    B_VALUE DEC(19,2)
+);
+
+INSERT INTO SALE_STATS_2(ID, FISCAL_YEAR, A_QTY, A_VALUE, B_QTY, B_VALUE)
+VALUES(1, 2018, 100, 1000, 2000, 4000);
+
+INSERT INTO SALE_STATS_2(ID, FISCAL_YEAR, A_QTY, A_VALUE, B_QTY, B_VALUE)
+VALUES(2, 2019, 150, 1500, 2500, 5000);
+
+
+-- CEK DATA TABLE SALE_STATS_2
+SELECT * FROM SALE_STATS_2;
+
+-- UNPIVOT lebih dari satu kolom
+SELECT * FROM SALE_STATS_2
+UNPIVOT
+(
+    (QUANTITY, AMOUNT)
+    FOR PRODUCT_CODE
+    IN(
+        (A_QTY, A_VALUE) AS 'A',
+        (B_QTY, B_VALUE) AS 'B'
+    )
+);
