@@ -17,3 +17,7 @@ GROUP BY
     CATEGORY,
     CUBE(CUSTOMER);
 ORDER BY CATEGORY, CUSTOMER NULLS LAST;
+
+
+-- Dengan demikian, GROUP BY CATEGORY, CUBE(CUSTOMER) akan menghasilkan 
+-- subtotal per kategori, subtotal per pelanggan dalam setiap kategori, dan total keseluruhan

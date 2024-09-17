@@ -50,7 +50,6 @@ GROUP BY ROLLUP(
     STATUS
     )
 
-
 -- GROUP BY ROLLUP(CUSTOMER_ID, STATUS):
 
 -- ROLLUP adalah fungsi dalam Oracle yang memungkinkan kita membuat agregasi data yang lebih detail.
@@ -59,3 +58,20 @@ GROUP BY ROLLUP(
 --      Semua STATUS dalam satu CUSTOMER_ID (level 2).
 --      Semua CUSTOMER_ID secara keseluruhan (level 3).
 -- Dengan ROLLUP, hasilnya akan menampilkan subtotal (untuk setiap CUSTOMER_ID) dan total keseluruhan (untuk semua CUSTOMER_ID).
+
+
+
+-- CONTOH ROLLUP DENGAN WHERE
+-- hasilnya akan menampilkan subtotal (untuk setiap CUSTOMER_ID) dan total keseluruhan (untuk semua CUSTOMER_ID) dengan CUSTOMER_ID = 4
+SELECT
+    CUSTOMER_ID,
+    STATUS,
+    SUM(QUANTITY * UNIT_PRICE) sales
+FROM ORDERS
+JOIN ORDER_ITEMS USING(ORDER_ID)
+WHERE CUSTOMER_ID = 4
+GROUP BY 
+    CUSTOMER_ID,
+ROLLUP(
+    STATUS
+    )

@@ -2,7 +2,7 @@
 -- ROLLUP adalah ekstensi dari GROUP BY yang memungkinkan kita untuk membuat subtotal dan total dari hasil agregasi.
 -- sebuah perintah untuk menjumlahkan dari sebuah group by
 
--- Query diabawah ini akan mengembalikan pendapatan penjualan oleh pelanggan pada tahun 2017
+-- Query dibawah ini akan mengembalikan pendapatan penjualan oleh pelanggan pada tahun 2017
 SELECT CUSTOMER_ID, SUM(QUANTITY * UNIT_PRICE) AMOUNT
 FROM ORDERS O
 JOIN ORDER_ITEMS OI ON O.ORDER_ID = OI.ORDER_ID
@@ -36,9 +36,8 @@ SELECT
     CUSTOMER_ID,
     SUM(QUANTITY * UNIT_PRICE) AMOUNT
 FROM
-    ORDERS      O
-    JOIN ORDER_ITEMS OI
-    ON O.ORDER_ID = OI.ORDER_ID
+    ORDERS O
+    JOIN ORDER_ITEMS OI ON O.ORDER_ID = OI.ORDER_ID
 WHERE
     STATUS = 'Shipped'
     AND SALESMAN_ID IS NOT NULL

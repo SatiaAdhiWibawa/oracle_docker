@@ -1,7 +1,7 @@
 -- CROSS JOIN
 -- Setiap data pada table A dipasangkan tepat dengan semua data di table B
 
--- CROSS JOIN adalah salah satu JOIN yang sangat jangan sekali digunakan
+-- CROSS JOIN adalah salah satu JOIN yang sangat jarang sekali digunakan
 -- CROSS JOIN adalah melakukan join dengan cara mengkalikan data di tabel pertama dengan dada di table kedua
 -- Artinya jika ada 5 data di tabel pertama, dan 5 data di tabel kedua, akan menghasilkan 25 kombinasi data (5 x 5)
 -- Sekali lagi perlu diingat, ini adalah JOIN yang sangat jarang sekali digunakan
