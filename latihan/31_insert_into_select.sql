@@ -35,7 +35,7 @@ SELECT * FROM SALES;
 -- akan menghasilkan tabel baru dengan struktur yang sama dengan tabel SALES tetapi tidak ada data di dalamnya.
 CREATE TABLE SALES_2017 AS
 SELECT * FROM SALES
-WHERE 1=0;
+WHERE 1=0; -- 1=0 adalah kondisi yang selalu salah sehingga tidak ada data yang dipilih.
 
 SELECT * FROM SALES_2017;
 

@@ -9,6 +9,7 @@
 
 -- 1. query utama: Mengambil harga tertinggi dari tabel PRODUCTS
 SELECT MAX(LIST_PRICE) AS MAX_LIST_PRICE FROM PRODUCTS;
+-- HASILNYA: 8867.99
 
 -- 2. lalu mencari detail product berdasarkan harga tertinggi
 SELECT

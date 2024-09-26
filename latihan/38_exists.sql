@@ -30,14 +30,10 @@ WHERE EXISTS (
 SELECT * FROM WAREHOUSES WHERE WAREHOUSE_NAME LIKE '%USA%';
 
 -- BAGAIMANA CARANYA PENGGUNAAN EXISTS DALAM -- insert rows in a Table
-
+-- INSERT data ke CUSTOMERS_2016 dari CUSTOMERS yang memiliki ORDER di tahun 2016
 INSERT INTO
-CUSTOMERS_2016 (
-    company,
-    first_name,
-    last_name,
-    email
-)SELECT
+CUSTOMERS_2016 (company, first_name, last_name, email)
+SELECT
     NAME as company,
     FIRST_NAME,
     LAST_NAME,

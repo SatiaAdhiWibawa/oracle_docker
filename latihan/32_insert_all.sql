@@ -29,7 +29,7 @@ SELECT * FROM DUAL;
 SELECT * FROM FRUIT;
 
 
--- sisipkan beberapa bari ke dalam beberapa tabel
+-- sisipkan beberapa baris ke dalam beberapa tabel
 -- INSERT ALL
 --     INTO TABLE_NAME1 (column1, column2, column3) VALUES (value1, value2, value3)
 --     INTO TABLE_NAME2 (column1, column2, column3) VALUES (value1, value2, value3)

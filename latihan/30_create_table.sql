@@ -47,6 +47,8 @@ CREATE TABLE CONTOH(
 );
 
 -- INSERT INTO MENGGUNAKAN SEMUA COLUM YANG ADA, JIKA TIDAK ADA COLUM YANG DIISI MAKA AKAN ERROR
+-- dan syaratnya adalah harus diisi semua colum yang ada
+-- syarat table harus memiliki colum yang sama dengan data yang akan diinsert
 INSERT INTO contoh
 VALUES (1, 'John Doe');
 

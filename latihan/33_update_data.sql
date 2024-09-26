@@ -39,3 +39,28 @@ INSERT INTO parts (part_name,lead_time,cost,status) VALUES ('ac orci.',35,134,0)
 INSERT INTO parts (part_name,lead_time,cost,status) VALUES ('arcu. Aliquam',36,154,0);
 INSERT INTO parts (part_name,lead_time,cost,status) VALUES ('at auctor',32,56,1);
 INSERT INTO parts (part_name,lead_time,cost,status) VALUES ('purus, accumsan',33,12,1);
+
+
+-- update 1 kolom
+
+UPDATE parts
+SET cost = 130
+WHERE part_id = 1;
+
+SELECT * FROM parts WHERE part_id = 1;
+
+-- update lebih dari 1 kolom
+UPDATE PARTS
+SET
+    LEAD_TIME = 30,
+    COST = 120,
+    STATUS = 1
+WHERE PART_ID = 5;
+
+SELECT * FROM parts WHERE part_id = 5;
+
+-- update semua data dengan kondisi tertentu
+UPDATE PARTS
+SET cost = cost * 1.05;
+
+SELECT * FROM parts ORDER BY part_name;
