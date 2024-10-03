@@ -20,7 +20,8 @@ OPA AS (
         DUAL
     CONNECT BY
         LEVEL < = LENGTH( '' ) - LENGTH( REPLACE( '', ';', '' ) ) + 1 --V_P_RES_OP2=''		--=
-), V_OP AS (
+),
+V_OP AS (
     SELECT
         TRIM( REGEXP_SUBSTR( '',
         '[^;]+',

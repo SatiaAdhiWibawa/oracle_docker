@@ -1,0 +1,13 @@
+ilmu baru
+1. fungsi CONCAT di oracle hanya bisa menerima 2 argument saja
+2. fungsi YEAR() di Oracle tidak didukung. Gunakan EXTRACT(YEAR FROM ORDER_DATE)
+
+3. Join table pake using jika nama column sama
+- SELECT * FROM INVENTORIES JOIN PRODUCTS USING (PRODUCT_ID);
+- SELECT * FROM INVENTORIES JOIN PRODUCTS ON INVENTORIES.PRODUCT_ID = PRODUCTS.PRODUCT_ID;
+
+4. Selft Join, bisa join dengan table yang sama
+5. Full Outer Join, mengambil semua data yang ada di kedua table, gabungan atara right join dan left join
+
+6. LAG() adalah fungsi analitik yang digunakan untuk melihat nilai dari baris sebelumnya tanpa perlu menulis subquery.
+   LAG(count(admission_date)): Mengambil jumlah pasien pada hari sebelumnya.
