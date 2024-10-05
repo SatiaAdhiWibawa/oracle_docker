@@ -29,12 +29,12 @@ join admissions a on a.patient_id = p.patient_id;
 select
 	case
     when patient_id % 2 = 0 then 'Yes'
-	when patient_id % 2 = 1 then 'No'
-    end as has_insurance,
-    case
+	  when patient_id % 2 = 1 then 'No'
+  end as has_insurance,
+  case
     when patient_id % 2 = 0 then count(patient_id % 2 = 0) * 10
-	when patient_id % 2 = 1 then count(patient_id % 2 = 1) * 50
-    end as cost_after_insurance
+	  when patient_id % 2 = 1 then count(patient_id % 2 = 1) * 50
+  end as cost_after_insurance
 from admissions
 group by has_insurance;
 
